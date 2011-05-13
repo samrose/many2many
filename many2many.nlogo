@@ -54,9 +54,9 @@ to setup3
    set label who
    ]
 end
-;link wireless sensor network
+;link various nets
 to setup-spatially-clustered-network
- let num-links (6 * number-of-nodes) / 2
+ let num-links (6 * number-of-nodes) 
 
  while [count links < num-links ]
  [
@@ -144,35 +144,19 @@ NIL
 NIL
 
 SLIDER
-18
-137
-198
-170
+19
+81
+199
+114
 number-of-nodes
 number-of-nodes
 0
 100
-22
+3
 1
 1
 NIL
 HORIZONTAL
-
-BUTTON
-23
-90
-187
-123
-generate request
-request1
-NIL
-1
-T
-OBSERVER
-NIL
-NIL
-NIL
-NIL
 
 @#$#@#$#@
 WHAT IS IT?
