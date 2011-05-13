@@ -1,3 +1,8 @@
+;Sam Rose, Paul B. Hartzog, Richard C. Adler http://futureforwardinstitute.com
+;based on work of Qasim Siddique qasim_1987@hotmail.com 
+;original model at http://ccl.northwestern.edu/netlogo/models/community/WSN
+
+
 breed[nodes a-node]
 globals [nodename]
 nodes-own[connected]
