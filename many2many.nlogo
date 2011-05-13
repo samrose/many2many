@@ -3,20 +3,26 @@
 ;original model at http://ccl.northwestern.edu/netlogo/models/community/WSN
 
 
-breed[nodes a-node]
+breed[nodes1 a-node-1]
+breed[nodes2 a-node-2]
+breed[nodes3 a-node-3]
 globals [nodename]
-nodes-own[connected]
+nodes1-own[connected]
+nodes2-own[connected]
+nodes3-own[connected]
 links-own[connect]
 to setup
+   ca
    setup1
+   setup2
+   setup3
    setup-spatially-clustered-network
    ask links [set color white
      set connect false
    ]
 end
 to setup1
-  ca
-  create-nodes number-of-nodes
+  create-nodes1 number-of-nodes
 [
    ;for visual reasons, we don't put any nodes *too* close to the edges
     setxy (random-xcor * 0.95) (random-ycor * 0.95)
@@ -24,7 +30,30 @@ to setup1
    set color green
    set connected false
    set label who
-   ]end
+   ]
+end
+to setup2
+  create-nodes2 number-of-nodes
+[
+   ;for visual reasons, we don't put any nodes *too* close to the edges
+    setxy (random-xcor * 0.95) (random-ycor * 0.95)
+   set shape "circle"
+   set color blue
+   set connected false
+   set label who
+   ]
+end
+to setup3
+  create-nodes3 number-of-nodes
+[
+   ;for visual reasons, we don't put any nodes *too* close to the edges
+    setxy (random-xcor * 0.95) (random-ycor * 0.95)
+   set shape "circle"
+   set color yellow
+   set connected false
+   set label who
+   ]
+end
 ;link wireless sensor network
 to setup-spatially-clustered-network
  let num-links (6 * number-of-nodes) / 2
@@ -46,7 +75,13 @@ to setup-spatially-clustered-network
    layout-spring turtles links 0.3 (world-width / (sqrt number-of-nodes)) 1
  ]  
 end
-
+;Generate Message for nodes
+to request1
+;ask one-of nodes1 nodes2 nodes2
+[
+;set color red
+]
+end
 to go
 end
 @#$#@#$#@
@@ -109,19 +144,35 @@ NIL
 NIL
 
 SLIDER
-17
-80
-197
-113
+18
+137
+198
+170
 number-of-nodes
 number-of-nodes
 0
 100
-9
+22
 1
 1
 NIL
 HORIZONTAL
+
+BUTTON
+23
+90
+187
+123
+generate request
+request1
+NIL
+1
+T
+OBSERVER
+NIL
+NIL
+NIL
+NIL
 
 @#$#@#$#@
 WHAT IS IT?
